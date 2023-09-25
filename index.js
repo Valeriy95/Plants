@@ -1,157 +1,104 @@
-// Burger-menu
-function helloWorldHidden () {
-   document.querySelector('.nav-list').classList.toggle('hidden1');
-   document.querySelector('.navbar-burger-close').classList.toggle('hidden123');
-};
-
+// Blue Service
 const body = document.body;
-
-body.addEventListener('click', remove);
-function remove (e) {
-   const navbarBurger = document.querySelector('.navbar-burger');
-   const navbarBurgerClose = document.querySelector('.navbar-burger-close');
-   const navList = document.querySelector('.nav-list');
-   const navbarBurgerSpan2 = document.querySelector('.navbar-burger-span-2');
-   if(e.target !== navList && e.target !== navbarBurger && e.target !== navbarBurgerClose && e.target !== navbarBurgerSpan2) {
-      document.querySelector('.nav-list').classList.remove('hidden1');
-      document.querySelector('.navbar-burger-close').classList.remove('hidden123');
-   } else {
-      helloWorldHidden ();
-   }
-};
-
-// Accordion Price
-body.addEventListener('click', accordionPrice);
-function accordionPrice (e) {
-   const downdrow1 = document.querySelector('#dropdown1');
-   const downdrow2 = document.querySelector('#dropdown2');
-   const downdrow3 = document.querySelector('#dropdown3');
-   const downup1 = document.querySelector('#icon-prs-hidden');
-   const downup2 = document.querySelector('#icon-standard-hidden'); 
-   const downup3 = document.querySelector('#icon-care-hidden');
-   const pricesBtn1 = document.querySelector('.prices-btn1-hidden');
-   const pricesBtn2 = document.querySelector('.prices-btn2-hidden');
-   const pricesBtn3 = document.querySelector('.prices-btn3-hidden');
-
-   if (e.target === downdrow1 || e.target === downup1) {
-   pricesBtn1.classList.toggle('hidden');
-   pricesBtn2.classList.add('hidden');
-   pricesBtn3.classList.add('hidden');
-   };
-
-   if ( e.target ===  downdrow2 || e.target === downup2) {
-   pricesBtn2.classList.toggle('hidden');
-   pricesBtn1.classList.add('hidden');
-   pricesBtn3.classList.add('hidden');
-   };
-
-   if ( e.target ===  downdrow3 || e.target === downup3) {
-   pricesBtn3.classList.toggle('hidden');
-   pricesBtn1.classList.add('hidden');
-   pricesBtn2.classList.add('hidden');
-   }; 
-};
-
-// Blur Service
 body.addEventListener('click', blurService);
 let counter = 0;
 function blurService (e) {
    const btnGardens = document.querySelector('#gardens');
    const btnPlantings = document.querySelector('#plantings');
    const btnLawns = document.querySelector('#lawns');
-   const serGarden = document.querySelector('.garden');
-   const serPlanting = document.querySelector('.planting');
-   const serCare = document.querySelector('.care');
-   const serGarden1 = document.querySelector('.garden1');
-   const serPlanting1 = document.querySelector('.planting1');
-   const serPlanting2 = document.querySelector('.planting2');
+   const cardGarden = document.querySelector('#garden_first');
+   const cardPlanting = document.querySelector('#planting_second');
+   const cardCare = document.querySelector('#care_third');
+   const cardGarden2 = document.querySelector('#garden_fifth');
+   const cardPlanting2 = document.querySelector('#planting_fourth');
+   const cardPlanting3 = document.querySelector('#planting_sixth');
    
    if(e.target === btnGardens || e.target === btnPlantings || e.target === btnLawns) {
       counter++;
    };
 
    if (e.target === btnGardens && counter == 1) {
-      serPlanting.classList.add('blurs');
-      serPlanting1.classList.add('blurs');
-      serPlanting2.classList.add('blurs');
-      serCare.classList.add('blurs');
-      serGarden.classList.remove('blurs');
-      serGarden1.classList.remove('blurs');
+      cardPlanting.classList.add('blurs');
+      cardPlanting2.classList.add('blurs');
+      cardPlanting3.classList.add('blurs');
+      cardCare.classList.add('blurs');
+      cardGarden.classList.remove('blurs');
+      cardGarden2.classList.remove('blurs');
       btnGardens.classList.add('active');
    };
 
    if (e.target === btnPlantings && counter == 1) {
-      serGarden.classList.add('blurs');
-      serGarden1.classList.add('blurs');
-      serCare.classList.add('blurs');
-      serPlanting.classList.remove('blurs');
-      serPlanting1.classList.remove('blurs');
-      serPlanting2.classList.remove('blurs');
+      cardGarden.classList.add('blurs');
+      cardGarden2.classList.add('blurs');
+      cardCare.classList.add('blurs');
+      cardPlanting.classList.remove('blurs');
+      cardPlanting2.classList.remove('blurs');
+      cardPlanting3.classList.remove('blurs');
       btnPlantings.classList.add('active');
    };
 
    if (e.target === btnLawns && counter == 1) {
-      serGarden.classList.add('blurs');
-      serGarden1.classList.add('blurs');
-      serPlanting.classList.add('blurs');
-      serPlanting1.classList.add('blurs');
-      serPlanting2.classList.add('blurs');
-      serCare.classList.remove('blurs');
+      cardGarden.classList.add('blurs');
+      cardGarden2.classList.add('blurs');
+      cardPlanting.classList.add('blurs');
+      cardPlanting2.classList.add('blurs');
+      cardPlanting3.classList.add('blurs');
+      cardCare.classList.remove('blurs');
       btnLawns.classList.add('active');
    };
 
    if (e.target === btnGardens && counter == 2) {
-      if(serGarden.classList.contains('blurs')) {
-         serGarden.classList.remove('blurs');
-         serGarden1.classList.remove('blurs');
+      if(cardGarden.classList.contains('blurs')) {
+         cardGarden.classList.remove('blurs');
+         cardGarden2.classList.remove('blurs');
          btnGardens.classList.add('active');
       } else {
-         serPlanting.classList.remove('blurs');
-         serPlanting1.classList.remove('blurs');
-         serPlanting2.classList.remove('blurs');
-         serCare.classList.remove('blurs');
+         cardPlanting.classList.remove('blurs');
+         cardPlanting2.classList.remove('blurs');
+         cardPlanting3.classList.remove('blurs');
+         cardCare.classList.remove('blurs');
          btnGardens.classList.remove('active');
          counter = 0;
       }
    };
 
    if (e.target === btnPlantings && counter == 2) {
-      if(serPlanting.classList.contains('blurs')) {
-         serPlanting.classList.remove('blurs');
-         serPlanting1.classList.remove('blurs');
-         serPlanting2.classList.remove('blurs');
+      if(cardPlanting.classList.contains('blurs')) {
+         cardPlanting.classList.remove('blurs');
+         cardPlanting2.classList.remove('blurs');
+         cardPlanting3.classList.remove('blurs');
          btnPlantings.classList.add('active');
       } else {
-         serGarden.classList.remove('blurs');
-         serGarden1.classList.remove('blurs');
-         serCare.classList.remove('blurs');
+         cardGarden.classList.remove('blurs');
+         cardGarden2.classList.remove('blurs');
+         cardCare.classList.remove('blurs');
          btnPlantings.classList.remove('active');
          counter = 0;
       }
    };
 
    if (e.target === btnLawns && counter == 2) {
-      if(serCare.classList.contains('blurs')) {
-         serCare.classList.remove('blurs');
+      if(cardCare.classList.contains('blurs')) {
+         cardCare.classList.remove('blurs');
          btnLawns.classList.add('active');
       } else {
-         serGarden.classList.remove('blurs');
-         serGarden1.classList.remove('blurs');
-         serPlanting.classList.remove('blurs');
-         serPlanting1.classList.remove('blurs');
-         serPlanting2.classList.remove('blurs');
+         cardGarden.classList.remove('blurs');
+         cardGarden2.classList.remove('blurs');
+         cardPlanting.classList.remove('blurs');
+         cardPlanting2.classList.remove('blurs');
+         cardPlanting3.classList.remove('blurs');
          btnLawns.classList.remove('active');
          counter = 0;
       }
    };
 
    if (e.target === btnGardens && counter == 3) {
-      serPlanting.classList.add('blurs');
-      serPlanting1.classList.add('blurs');
-      serPlanting2.classList.add('blurs');
-      serCare.classList.add('blurs');
-      serGarden.classList.remove('blurs');
-      serGarden1.classList.remove('blurs');
+      cardPlanting.classList.add('blurs');
+      cardPlanting2.classList.add('blurs');
+      cardPlanting3.classList.add('blurs');
+      cardCare.classList.add('blurs');
+      cardGarden.classList.remove('blurs');
+      cardGarden2.classList.remove('blurs');
       btnPlantings.classList.remove('active');
       btnLawns.classList.remove('active');
       btnGardens.classList.add('active');
@@ -159,12 +106,12 @@ function blurService (e) {
    };
 
    if (e.target === btnPlantings && counter == 3) {
-      serGarden.classList.add('blurs');
-      serGarden1.classList.add('blurs');
-      serCare.classList.add('blurs');
-      serPlanting.classList.remove('blurs');
-      serPlanting1.classList.remove('blurs');
-      serPlanting2.classList.remove('blurs');
+      cardGarden.classList.add('blurs');
+      cardGarden2.classList.add('blurs');
+      cardCare.classList.add('blurs');
+      cardPlanting.classList.remove('blurs');
+      cardPlanting2.classList.remove('blurs');
+      cardPlanting3.classList.remove('blurs');
       btnGardens.classList.remove('active');
       btnLawns.classList.remove('active');
       btnPlantings.classList.add('active');
@@ -172,12 +119,12 @@ function blurService (e) {
    };
 
    if (e.target === btnLawns && counter == 3) {
-      serGarden.classList.add('blurs');
-      serGarden1.classList.add('blurs');
-      serPlanting.classList.add('blurs');
-      serPlanting1.classList.add('blurs');
-      serPlanting2.classList.add('blurs');
-      serCare.classList.remove('blurs');
+      cardGarden.classList.add('blurs');
+      cardGarden2.classList.add('blurs');
+      cardPlanting.classList.add('blurs');
+      cardPlanting2.classList.add('blurs');
+      cardPlanting3.classList.add('blurs');
+      cardCare.classList.remove('blurs');
       btnGardens.classList.remove('active');
       btnPlantings.classList.remove('active');
       btnLawns.classList.add('active');
@@ -185,12 +132,12 @@ function blurService (e) {
    };
 
    if (e.target !== btnGardens && e.target !== btnPlantings && e.target !== btnLawns) {
-      serGarden.classList.remove('blurs');
-      serGarden1.classList.remove('blurs');
-      serPlanting.classList.remove('blurs');
-      serPlanting1.classList.remove('blurs');
-      serPlanting2.classList.remove('blurs');
-      serCare.classList.remove('blurs');
+      cardGarden.classList.remove('blurs');
+      cardGarden2.classList.remove('blurs');
+      cardPlanting.classList.remove('blurs');
+      cardPlanting2.classList.remove('blurs');
+      cardPlanting3.classList.remove('blurs');
+      cardCare.classList.remove('blurs');
       btnGardens.classList.remove('active');
       btnPlantings.classList.remove('active');
       btnLawns.classList.remove('active');
@@ -198,249 +145,138 @@ function blurService (e) {
    };
 };
 
+
+// Accordion Price
+body.addEventListener('click', accordionPrice);
+function accordionPrice (e) {
+   const downdrowBasic = document.querySelector('#dropdown1');
+   const downdrowStandard = document.querySelector('#dropdown2');
+   const downdrowPro = document.querySelector('#dropdown3');
+   const downupBasic = document.querySelector('#icon_hidden');
+   const downupStandard = document.querySelector('#icon-standard-hidden'); 
+   const downupPro = document.querySelector('#icon-care-hidden');
+   const pricesContainerBasic = document.querySelector('.price_basic_hidden');
+   const pricesContainerStandard = document.querySelector('.price_standard_hidden');
+   const pricesContainerPro = document.querySelector('.price_pro_hidden');
+
+   if (e.target === downdrowBasic || e.target === downupBasic) {
+    pricesContainerBasic.classList.toggle('hidden');
+    pricesContainerStandard.classList.add('hidden');
+    pricesContainerPro.classList.add('hidden');
+   };
+
+   if ( e.target ===  downdrowStandard || e.target === downupStandard) {
+    pricesContainerStandard.classList.toggle('hidden');
+    pricesContainerBasic.classList.add('hidden');
+    pricesContainerPro.classList.add('hidden');
+   };
+
+   if ( e.target ===  downdrowPro || e.target === downupPro) {
+    pricesContainerPro.classList.toggle('hidden');
+    pricesContainerBasic.classList.add('hidden');
+    pricesContainerStandard.classList.add('hidden');
+   }; 
+};
+
 // Contact
-const contactsText = document.querySelector('.container-contacts-text');
-const iconOpen = document.querySelector('.contact-icon');
-const iconClose = document.querySelector('.contact-icon1');
-const containerContactsHid = document.querySelector('.container-contacts-hid');
-const containerContacts = document.querySelector('.container-contacts');
+
+const iconOpen = document.querySelector('.contact_icon');
+const iconClose = document.querySelector('.contact_icon_hidden');
+const formContactsHidden = document.querySelector('.contacts_form_hid');
+const formContacts= document.querySelector('.contact_form');
+
+const contactsText = document.querySelector('.contacts_text')
+
+const cityCanandaigua= document.querySelector('#city_Canandaigua');
+const cityNewYork= document.querySelector('#city_NewYork');
+const cityYonkers= document.querySelector('#city_Yonkers');
+const citySherrill= document.querySelector('#city_Sherrill');
+
+const addressCanandaigua = document.querySelector('#Canandaigua');
+const addressCityNewYork = document.querySelector('#New_York');
+const addressCityYonkers = document.querySelector('#Yonkers');
+const addresscitySherrill = document.querySelector('#Sherrill')
 
 body.addEventListener('click', contactContainer);
 function contactContainer (e) {
-   const img380 = document.querySelector('.contact-img');
-   if (e.target === iconOpen) {
-      if (window.innerWidth <= 380) {
-         containerContacts.classList.add('contacts-active');
-         iconClose.classList.toggle('hidden');
-         containerContactsHid.classList.toggle('hidden');
-         city1.classList.add('hidden');
-         city2.classList.add('hidden');
-         city3.classList.add('hidden');
-         city4.classList.add('hidden');
-         img380.style.opacity = '0';
-         img380.style.paddingLeft = '0';
-      } else {
-         containerContacts.classList.add('contacts-active');
-         iconClose.classList.toggle('hidden');
-         containerContactsHid.classList.toggle('hidden');
-         city1.classList.add('hidden');
-         city2.classList.add('hidden');
-         city3.classList.add('hidden');
-         city4.classList.add('hidden');
-      }
-   }
-   if (e.target === iconClose) {
-      if (window.innerWidth <= 380)  {
-         containerContacts.classList.remove('contacts-active');
-         iconClose.classList.toggle('hidden');
-         containerContactsHid.classList.toggle('hidden');
-         contactsText.innerText = 'City';
-         iconOpen.style.paddingLeft = '198px';
-         contactsText.style.fontSize = '20px';
-         img380.style.opacity = '1';
-         img380.style.paddingLeft = '138px';
-      } else {
-         containerContacts.classList.remove('contacts-active');
-         iconClose.classList.toggle('hidden');
-         containerContactsHid.classList.toggle('hidden');
-         contactsText.innerText = 'City';
-         iconOpen.style.paddingLeft = '332px';
-         contactsText.style.fontSize = '20px';
-      }
-   }
-};
+    if (e.target === iconOpen) {
+        formContactsHidden.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        formContacts.classList.add('contacts_active');
+        addressCanandaigua.classList.add('hidden');
+        addressCityNewYork.classList.add('hidden');
+        addressCityYonkers.classList.add('hidden');
+        addresscitySherrill.classList.add('hidden');
+    }
+    if (e.target === iconClose) {
+        formContactsHidden.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        formContacts.classList.remove('contacts_active');
+        contactsText.innerHTML = 'City';
+        addressCanandaigua.classList.add('hidden');
+        addressCityNewYork.classList.add('hidden');
+        addressCityYonkers.classList.add('hidden');
+        addresscitySherrill.classList.add('hidden');
+    }
+    if (e.target === cityCanandaigua) {
+        formContactsHidden.classList.add('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        formContacts.classList.add('contacts_active');
+        contactsText.innerHTML = cityCanandaigua.innerHTML;
+        addressCanandaigua.classList.remove('hidden');
+    }
+    if (e.target === cityNewYork) {
+        formContactsHidden.classList.add('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        formContacts.classList.add('contacts_active');
+        contactsText.innerHTML = cityNewYork.innerHTML;
+        addressCityNewYork.classList.remove('hidden');
+    }
+    if (e.target === cityYonkers) {
+        formContactsHidden.classList.add('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        formContacts.classList.add('contacts_active');
+        contactsText.innerHTML = cityYonkers.innerHTML;
+        addressCityYonkers.classList.remove('hidden');
+    }
+    if (e.target === citySherrill) {
+        formContactsHidden.classList.add('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        formContacts.classList.add('contacts_active');
+        contactsText.innerHTML = citySherrill.innerHTML;
+        addresscitySherrill.classList.remove('hidden');
+    }
+}
 
-const hidText1 = document.querySelector('.container-contacts-hid-text1');
-const hidText2 = document.querySelector('#hidText2');
-const hidText3 = document.querySelector('#hidText3');
-const hidText4 = document.querySelector('#hidText4');
-const border1 = document.querySelector('#border1');
-const border2 = document.querySelector('#border2');
-const border3 = document.querySelector('#border3');
-const border4 = document.querySelector('#border4');
+//Burger menu 
 
-body.addEventListener('mousemove', hoverContacts);
-function hoverContacts (e) {
+const menuBurger = document.querySelector('.navbar_burger');
+const navList = document.querySelector('.nav_list');
+const iconBurgerClose = document.querySelector('.navbar_burger_close');
+const links = document.querySelectorAll('.nav_item');
 
-   if (e.target === hidText1 || e.target === border1) {
-      hidText1.classList.add('active-contacts');
-      border1.classList.add('active-border');
-   };
+menuBurger.addEventListener('click', function () {
+   menuBurger.classList.add('opacity');
+   navList.classList.add('nav_list_open');
+   iconBurgerClose.style.marginTop = '30px';
+})
 
-   if (e.target === hidText2 || e.target === border2) {
-      hidText2.classList.add('active-contacts');
-      border2.classList.add('active-border');
-   };
+iconBurgerClose.addEventListener('click', function () {
+   menuBurger.classList.remove('opacity');
+   navList.classList.remove('nav_list_open');
+   iconBurgerClose.style.marginTop = '-330px';
+})
 
-   if (e.target === hidText3 || e.target === border3) {
-      hidText3.classList.add('active-contacts');
-      border3.classList.add('active-border');
-   };
-
-   if (e.target === hidText4 || e.target === border4) {
-      hidText4.classList.add('active-contacts');
-      border4.classList.add('active-border');
-   };
-};
-
-body.addEventListener('mouseout', hoverContactsOut);
-function hoverContactsOut (e) {
-  
-   if (e.target === hidText1 || e.target === border1) {
-      hidText1.classList.remove('active-contacts');
-      border1.classList.remove('active-border');
-   };
-
-   if (e.target === hidText2 || e.target === border2) {
-      hidText2.classList.remove('active-contacts');
-      border2.classList.remove('active-border');
-   };
-
-   if (e.target === hidText3 || e.target === border3) {
-      hidText3.classList.remove('active-contacts');
-      border3.classList.remove('active-border');
-   };
-
-   if (e.target === hidText4 || e.target === border4) {
-      hidText4.classList.remove('active-contacts');
-      border4.classList.remove('active-border');
-   };
-};
-
-hidText1.addEventListener('click', openAddress1);
-hidText2.addEventListener('click', openAddress2);
-hidText3.addEventListener('click', openAddress3);
-hidText4.addEventListener('click', openAddress4);
-
-const city1 = document.querySelector('#City1');
-const city2 = document.querySelector('#City2');
-const city3 = document.querySelector('#City3');
-const city4 = document.querySelector('#City4');
-
-function openAddress1 () {
-   if (window.innerWidth <= 380) {
-      city1.classList.remove('hidden');
-      contactsText.innerText = hidText1.innerText;
-      containerContacts.style.marginTop = '42px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '100px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else if (window.innerWidth <= 768) {
-      city1.classList.remove('hidden');
-      contactsText.innerText = hidText1.innerText;
-      containerContacts.style.marginTop = '-38px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '233px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else {
-      city1.classList.remove('hidden');
-      contactsText.innerText = hidText1.innerText;
-      containerContacts.style.marginTop = '35px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '233px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-      containerContactsHid.classList.add('contacts-active');
-   }
-};
-
-function openAddress2 () {
-   if (window.innerWidth <= 380) {
-      city2.classList.remove('hidden');
-      contactsText.innerText = hidText2.innerText;
-      containerContacts.style.marginTop = '42px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '121px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else if (window.innerWidth <= 768) {
-      city2.classList.remove('hidden');
-      contactsText.innerText = hidText2.innerText;
-      containerContacts.style.marginTop = '-38px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '255px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else {
-      city2.classList.remove('hidden');
-      contactsText.innerText = hidText2.innerText;
-      containerContacts.style.marginTop = '35px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '255px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-      containerContactsHid.classList.add('contacts-active');
-   }
-};
-
-function openAddress3 () {
-   if (window.innerWidth <= 380) {
-      city3.classList.remove('hidden');
-      contactsText.innerText = hidText3.innerText;
-      containerContacts.style.marginTop = '42px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '138px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else if (window.innerWidth <= 768) {
-      city3.classList.remove('hidden');
-      contactsText.innerText = hidText3.innerText;
-      containerContacts.style.marginTop = '-38px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '272px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else {
-      city3.classList.remove('hidden');
-      contactsText.innerText = hidText3.innerText;
-      containerContacts.style.marginTop = '35px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '272px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-      containerContactsHid.classList.add('contacts-active');
-   }
-};
-
-function openAddress4 () {
-   if (window.innerWidth <= 380) {
-      city4.classList.remove('hidden');
-      contactsText.innerText = hidText4.innerText;
-      containerContacts.style.marginTop = '42px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '149px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else if (window.innerWidth <= 768) {
-      city4.classList.remove('hidden');
-      contactsText.innerText = hidText4.innerText;
-      containerContacts.style.marginTop = '-38px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '283px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-   } else {
-      city4.classList.remove('hidden');
-      contactsText.innerText = hidText4.innerText;
-      containerContacts.style.marginTop = '35px';
-      contactsText.style.fontSize = '16px';
-      iconOpen.style.paddingLeft = '283px';
-      containerContactsHid.classList.add('hidden');
-      iconClose.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-      containerContactsHid.classList.add('contacts-active');
-   }
-};
+links.forEach(function(link) {
+   link.addEventListener('click', function() {
+      menuBurger.classList.remove('opacity');
+      navList.classList.remove('nav_list_open');
+      iconBurgerClose.style.marginTop = '-330px';
+  });
+});
